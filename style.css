@@ -22,14 +22,209 @@
     display: inline;
 }
 
-@media only screen and (max-width: 600px) {
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Extra Small devices (phones, less than 576px) */
+@media only screen and (max-width: 575px) {
     #hide {
-      display: none;
+        display: none;
     }
+    
     .hide {
         display: none;
-      }
-  }
+    }
+    
+    /* Navbar adjustments */
+    .navbar-brand h2 {
+        font-size: 1.2rem !important;
+    }
+    
+    .navbar-brand i {
+        font-size: 1rem !important;
+    }
+    
+    /* Home section */
+    #home {
+        padding: 20px 15px !important;
+        margin-top: 20px !important;
+    }
+    
+    #home h1 {
+        font-size: 1.5rem !important;
+        text-align: center;
+    }
+    
+    #home img {
+        margin-top: 30px !important;
+        padding-left: 0 !important;
+        width: 80% !important;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* About section */
+    #about {
+        padding: 20px 15px !important;
+        margin-top: 30px !important;
+    }
+    
+    #about h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    #about p {
+        font-size: 0.9rem !important;
+        text-align: justify;
+    }
+    
+    /* Skills section */
+    #skill {
+        padding: 20px 15px !important;
+        margin-top: 30px !important;
+    }
+    
+    #skill h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    #skill li {
+        font-size: 0.9rem !important;
+        margin-bottom: 8px !important;
+    }
+    
+    /* Experience section */
+    #experience {
+        padding: 20px 15px !important;
+        margin-top: 30px !important;
+    }
+    
+    #experience h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    #experience h4 {
+        font-size: 1.2rem !important;
+    }
+    
+    #experience p, #experience li {
+        font-size: 0.85rem !important;
+    }
+    
+    /* Contact section */
+    #contact {
+        padding: 20px 15px !important;
+        margin-top: 30px !important;
+    }
+    
+    #contact h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    #contact h5 {
+        font-size: 1rem !important;
+        margin-left: 0 !important;
+    }
+    
+    #contact .mx-5 {
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+    }
+    
+    #contact .col {
+        margin-bottom: 20px;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    #hide {
+        display: none;
+    }
+    
+    .navbar-brand h2 {
+        font-size: 1.3rem !important;
+    }
+    
+    #home h1 {
+        font-size: 1.8rem !important;
+    }
+    
+    #home img {
+        padding-left: 0 !important;
+        margin-top: 40px !important;
+        width: 70% !important;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    #about, #skill, #experience, #contact {
+        padding: 30px 20px !important;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .navbar-brand h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    #home h1 {
+        font-size: 2rem !important;
+    }
+    
+    #home img {
+        margin-top: 50px !important;
+        width: 80% !important;
+    }
+    
+    #about img, #skill img {
+        width: 85% !important;
+        height: auto !important;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    #home img {
+        width: 75% !important;
+    }
+    
+    #about img, #skill img {
+        width: 80% !important;
+    }
+}
+
+section, div[id] {
+  scroll-margin-top: 100px; /* Adjust based on your navbar height */
+}
+
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+/* Universal responsive adjustments */
+@media only screen and (max-width: 991px) {
+    /* Stack columns on smaller screens */
+    .row .col {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    /* Center text on mobile */
+    #home, #about, #skill {
+        text-align: center !important;
+    }
+    
+    #about p, #skill ul {
+        text-align: left !important;
+    }
+}
 
   .ul {
     list-style-type: none;
@@ -222,6 +417,3 @@
     background-color: #ffffff;
     color:#000000 ;
   }
-
-
-   
