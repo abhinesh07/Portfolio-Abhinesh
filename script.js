@@ -1,91 +1,55 @@
-document.addEventListener("DOMContentLoaded", function() 
-  {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-        }
-      });
+document.addEventListener("DOMContentLoaded", function() {
+  // Create a single IntersectionObserver for fade effects
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+      }
     });
-    
-    const fadeIns = document.querySelectorAll('.fade-in');
-    fadeIns.forEach(fadeIn => {
-      observer.observe(fadeIn);
-    });
-
-
-    const fadeRights1 = document.querySelectorAll('.fade-right1');
-    fadeRights1.forEach(fadeRight => {
-    observer.observe(fadeRight);
-    });
-
-    const fadeRights = document.querySelectorAll('.fade-right');
-    fadeRights.forEach(fadeRight => {
-    observer.observe(fadeRight);
-    });
-
-    const fadeRights2 = document.querySelectorAll('.fade-right2');
-    fadeRights2.forEach(fadeRight => {
-    observer.observe(fadeRight);
-    });
-    
-
-    const fadeRights3 = document.querySelectorAll('.fade-right3');
-    fadeRights3.forEach(fadeRight => {
-    observer.observe(fadeRight);
-    });
-    
-    const fadeRights4 = document.querySelectorAll('.fade-right4');
-    fadeRights4.forEach(fadeRight => {
-    observer.observe(fadeRight);
-    });
-    
-    const fadeRights5 = document.querySelectorAll('.fade-right5');
-    fadeRights5.forEach(fadeRight => {
-    observer.observe(fadeRight);
-    });
-
-    const fadeleft = document.querySelectorAll('.fade-left');
-    fadeleft.forEach(fadeleft => {
-    observer.observe(fadeleft);
-    });
-
-    const fadeleft1 = document.querySelectorAll('.fade-left1');
-    fadeleft1.forEach(fadeleft => {
-    observer.observe(fadeleft);
-    });
-
   });
 
-let names = ["Frontend Developer", "Automation Tester"];
-let currentIndex = 0;
+  // Combine all fade-related selectors into one array to reduce repetition
+  const fadeClasses = [
+    '.fade-in', '.fade-right', '.fade-right1', '.fade-right2', '.fade-right3', '.fade-right4', '.fade-right5',
+    '.fade-left', '.fade-left1'
+  ];
 
-function changeName() 
-{
-     let currentName = names[currentIndex];
-     let displayElement = document.getElementById("changeText");
-     displayElement.innerHTML = ""; 
-       for (let i = 0; i < currentName.length; i++) 
-       {
-            setTimeout(() => 
-            {
-              displayElement.innerHTML += currentName[i];
-            }, i * 30); 
-       }
-     currentIndex = (currentIndex + 1) % names.length;
-}
-setInterval(changeName, 3000);
-changeName();
-
-
-function toggleSeeMore() {
-  const hiddenImages = document.querySelectorAll('.hidden');
-  hiddenImages.forEach(image => {
-      image.classList.remove('hidden');
+  fadeClasses.forEach(selector => {
+    document.querySelectorAll(selector).forEach(el => observer.observe(el));
   });
 
+  // Typing animation setup
+  const names = ["Mean Stack Developer", "Angular Developer"];
+  let currentIndex = 0;
+
+  function changeName() {
+    const currentName = names[currentIndex];
+    const displayElement = document.getElementById("changeText");
+
+    if (!displayElement) return; // Prevents error if element doesn't exist
+
+    displayElement.innerHTML = "";
+
+    for (let i = 0; i < currentName.length; i++) {
+      setTimeout(() => {
+        displayElement.innerHTML += currentName[i];
+      }, i * 30);
+    }
+
+    currentIndex = (currentIndex + 1) % names.length;
+  }
+
+  changeName();
+  setInterval(changeName, 3000);
+
+  // "See More" button functionality
   const seeMoreButton = document.getElementById('seeMore');
-  seeMoreButton.style.display = 'none';
-}
-
-
+  if (seeMoreButton) {
+    seeMoreButton.addEventListener('click', function() {
+      document.querySelectorAll('.hidden').forEach(image => {
+        image.classList.remove('hidden');
+      });
+      seeMoreButton.style.display = 'none';
+    });
+  }
+});
